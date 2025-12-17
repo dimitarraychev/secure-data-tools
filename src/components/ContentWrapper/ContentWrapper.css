@@ -3,3 +3,7 @@
   flex-direction: column;
   width: 40rem;
 }
+
+.content #output {
+  cursor: pointer;
+}
