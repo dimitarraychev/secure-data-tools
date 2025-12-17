@@ -22,7 +22,7 @@ function App() {
         <SideMenu />
 
         <Routes>
-          <Route path="/" element={<p>Please select</p>} />
+          <Route path="/" element={<Navigate to="/sha1" />} />
           <Route path="/sha1" element={<SHA1Section />} />
           <Route path="/sha256" element={<SHA256Section />} />
 
