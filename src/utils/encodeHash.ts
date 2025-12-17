@@ -1,6 +1,6 @@
 export const encodeHash = (
   buffer: ArrayBuffer,
-  encoding: "utf8" | "hex-lower" | "hex-upper" | "base64" = "utf8"
+  encoding: "" | "utf8" | "hex-lower" | "hex-upper" | "base64" = "utf8"
 ): string => {
   const bytes = new Uint8Array(buffer);
 

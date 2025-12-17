@@ -2,8 +2,13 @@ import { useState, useEffect } from "react";
 import type { Settings } from "../models/Settings";
 import { encodeHash } from "../utils/encodeHash";
 import { decodeInput } from "../utils/decodeInput";
+import { validateInput } from "../utils/validateInput";
 
-type HashFunction = (input: string, key?: string) => Promise<Uint8Array>;
+// Hash function now takes Uint8Array input and key
+export type HashFunction = (
+  input: Uint8Array,
+  key?: Uint8Array
+) => Promise<Uint8Array>;
 
 export const useHash = (hashFn: HashFunction, initialSettings: Settings) => {
   const [settingsData, setSettingsData] = useState<Settings>(initialSettings);
@@ -27,16 +32,24 @@ export const useHash = (hashFn: HashFunction, initialSettings: Settings) => {
         return;
       }
 
+      if (!validateInput(settingsData.input, settingsData.inputEncoding)) {
+        setSettingsData((prev) => ({
+          ...prev,
+          output: `Error: input is not a valid ${settingsData.inputEncoding} string`,
+        }));
+        return;
+      }
+
       try {
-        const input = decodeInput(
+        const inputBytes = decodeInput(
           settingsData.input,
           settingsData.inputEncoding
         );
-        const key = settingsData.key
+        const keyBytes = settingsData.key
           ? decodeInput(settingsData.key, settingsData.keyEncoding)
           : undefined;
 
-        const rawHash = await hashFn(input, key);
+        const rawHash = await hashFn(inputBytes, keyBytes);
 
         const encodedHash = settingsData.outputEncoding
           ? encodeHash(rawHash.slice().buffer, settingsData.outputEncoding)
