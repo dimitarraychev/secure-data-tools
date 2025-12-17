@@ -1,5 +1,5 @@
-import type { Settings } from "../../models/Settings";
 import "./SettingsWrapper.css";
+import type { Settings } from "../../models/Settings";
 
 interface SettingsWrapperProps {
   settingsData: Settings;
@@ -10,7 +10,10 @@ interface SettingsWrapperProps {
   ) => void;
 }
 
-const SettingsWrapper = ({ settingsData, handleChange }: SettingsWrapperProps) => {
+const SettingsWrapper = ({
+  settingsData,
+  handleChange,
+}: SettingsWrapperProps) => {
   return (
     <div className="settings">
       <label htmlFor="inputEncoding">Input Encoding:</label>

@@ -3,8 +3,8 @@ import "./App.css";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import SideMenu from "./components/SideMenu/SideMenu";
-import Sha256 from "./components/Sha256/Sha256";
-import Sha1 from "./components/Sha1/Sha1";
+import SHA256Section from "./components/SHA256Section/SHA256Section";
+import SHA1Section from "./components/SHA1Section/SHA1Section";
 
 function App() {
   return (
@@ -15,8 +15,8 @@ function App() {
         <SideMenu />
 
         <Routes>
-          <Route path="/sha1" element={<Sha1 />} />
-          <Route path="/sha256" element={<Sha256 />} />
+          <Route path="/sha1" element={<SHA1Section />} />
+          <Route path="/sha256" element={<SHA256Section />} />
           <Route path="/" element={<p>Please select</p>} />
 
           <Route path="*" element={<Navigate to="/" />} />

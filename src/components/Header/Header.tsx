@@ -1,6 +1,6 @@
+import { useNavigate } from "react-router-dom";
 import "./Header.css";
 import logo from "../../assets/CT_Interactive-logo.png";
-import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   const navigate = useNavigate();

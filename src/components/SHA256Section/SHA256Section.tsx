@@ -1,13 +1,10 @@
-import "./Sha256.css";
-
-import { generateSHA256 } from "../../utils/generateSHA256";
-
 import SettingsWrapper from "../SettingsWrapper/SettingsWrapper";
 import ContentWrapper from "../ContentWrapper/ContentWrapper";
+import { generateSHA256 } from "../../utils/generateSHA256";
 import { useHash } from "../../hooks/UseHash";
 import type { Settings } from "../../models/Settings";
 
-const Sha256 = () => {
+const SHA256Section = () => {
   const initialSettings: Settings = {
     input: "",
     output: "",
@@ -34,4 +31,4 @@ const Sha256 = () => {
   );
 };
 
-export default Sha256;
+export default SHA256Section;

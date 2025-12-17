@@ -1,5 +1,5 @@
-import type { Settings } from "../../models/Settings";
 import "./ContentWrapper.css";
+import type { Settings } from "../../models/Settings";
 
 interface ContentWrapperProps {
   settingsData: Settings;
