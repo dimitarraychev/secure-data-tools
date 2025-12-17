@@ -6,7 +6,6 @@ export const generateSha256 = async (
   const data = enc.encode(payload);
 
   if (key) {
-    // HMAC-SHA256
     const keyData = enc.encode(key);
     const cryptoKey = await window.crypto.subtle.importKey(
       "raw",

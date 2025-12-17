@@ -1,0 +1,8 @@
+export interface Settings {
+  input: string;
+  output: string;
+  inputEncoding: "utf8" | "hex" | "base64" | "";
+  outputEncoding: "hex" | "base64" | "";
+  keyEncoding: "utf8" | "hex" | "base64" | "";
+  key: string;
+}
