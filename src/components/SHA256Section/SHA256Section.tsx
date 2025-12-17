@@ -20,13 +20,20 @@ const SHA256Section = () => {
   );
 
   return (
-    <section className="sha256">
-      <SettingsWrapper
-        settingsData={settingsData}
-        handleChange={handleChange}
-      />
+    <section className="sha256 sha-section">
+      <h2 className="sha-header">SHA256</h2>
 
-      <ContentWrapper settingsData={settingsData} handleChange={handleChange} />
+      <div className="sha-columns">
+        <SettingsWrapper
+          settingsData={settingsData}
+          handleChange={handleChange}
+        />
+
+        <ContentWrapper
+          settingsData={settingsData}
+          handleChange={handleChange}
+        />
+      </div>
     </section>
   );
 };
