@@ -4,7 +4,6 @@ import { encodeHash } from "../utils/encodeHash";
 import { decodeInput } from "../utils/decodeInput";
 import { validateInput } from "../utils/validateInput";
 
-// Hash function now takes Uint8Array input and key
 export type HashFunction = (
   input: Uint8Array,
   key?: Uint8Array
