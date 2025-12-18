@@ -45,13 +45,18 @@ function App() {
           <Route
             path="/hex"
             element={
-              <ConvertSection title="Convert Hex" convertFn={hexConverter} />
+              <ConvertSection
+                key="hex"
+                title="Convert Hex"
+                convertFn={hexConverter}
+              />
             }
           />
           <Route
             path="/base64"
             element={
               <ConvertSection
+                key="base64"
                 title="Convert Base64"
                 convertFn={base64Converter}
               />
@@ -60,7 +65,11 @@ function App() {
           <Route
             path="/url"
             element={
-              <ConvertSection title="Convert URL" convertFn={urlConverter} />
+              <ConvertSection
+                key="url"
+                title="Convert URL"
+                convertFn={urlConverter}
+              />
             }
           />
 
