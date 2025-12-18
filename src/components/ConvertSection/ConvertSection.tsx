@@ -2,12 +2,12 @@ import ContentWrapper from "../ContentWrapper/ContentWrapper";
 import { useConverter } from "../../hooks/useConverter";
 import type { ConverterSettings } from "../../hooks/useConverter";
 
-interface ConverterProps {
+interface ConvertSectionProps {
   title: string;
-  converterFn: (input: string, mode: "encode" | "decode") => string;
+  convertFn: (input: string, mode: "encode" | "decode") => string;
 }
 
-const ConverterSection = ({ title, converterFn }: ConverterProps) => {
+const ConvertSection = ({ title, convertFn }: ConvertSectionProps) => {
   const initialSettings: ConverterSettings = {
     input: "",
     output: "",
@@ -16,7 +16,7 @@ const ConverterSection = ({ title, converterFn }: ConverterProps) => {
 
   const { settingsData, handleChange } = useConverter(
     initialSettings,
-    converterFn
+    convertFn
   );
 
   return (
@@ -41,4 +41,4 @@ const ConverterSection = ({ title, converterFn }: ConverterProps) => {
   );
 };
 
-export default ConverterSection;
+export default ConvertSection;

@@ -1,8 +1,8 @@
 import SettingsWrapper from "../SettingsWrapper/SettingsWrapper";
 import ContentWrapper from "../ContentWrapper/ContentWrapper";
 import { generateSHA256 } from "../../utils/generateSHA256";
-import { useHash } from "../../hooks/useHash";
-import type { HashingSettings } from "../../models/HashingSettings";
+import { useHasher } from "../../hooks/useHasher";
+import type { HashingSettings } from "../../models/Hasher";
 
 const SHA256Section = () => {
   const initialSettings: HashingSettings = {
@@ -14,14 +14,14 @@ const SHA256Section = () => {
     key: "",
   };
 
-  const { settingsData, handleChange } = useHash(
+  const { settingsData, handleChange } = useHasher(
     generateSHA256,
     initialSettings
   );
 
   return (
     <section className="sha256 section">
-      <h2 className="section-header">SHA256</h2>
+      <h2 className="section-header">Hash SHA256</h2>
 
       <div className="section-columns">
         <SettingsWrapper

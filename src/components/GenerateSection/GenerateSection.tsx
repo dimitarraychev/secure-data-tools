@@ -1,0 +1,60 @@
+import { useGenerator } from "../../hooks/useGenerator";
+import ContentWrapper from "../ContentWrapper/ContentWrapper";
+
+const GenerateSection = () => {
+  const initialSettings = {
+    count: 5,
+    length: 12,
+    excludeAmbiguous: true,
+  };
+
+  const { settings, handleChange } = useGenerator(initialSettings);
+
+  return (
+    <section className="converter-section section">
+      <h2 className="section-header">Generate Key</h2>
+      <div className="section-columns">
+        <div className="settings">
+          <label>Number of Passwords:</label>
+          <input
+            type="number"
+            name="count"
+            value={settings.count}
+            min={1}
+            max={100}
+            onChange={handleChange}
+          />
+
+          <label>Password Length:</label>
+          <input
+            type="number"
+            name="length"
+            value={settings.length}
+            min={6}
+            max={32}
+            onChange={handleChange}
+          />
+
+          <label>
+            Exclude Ambiguous Characters:
+            <input
+              type="checkbox"
+              name="excludeAmbiguous"
+              checked={settings.excludeAmbiguous}
+              onChange={handleChange}
+            />
+          </label>
+        </div>
+
+        <ContentWrapper
+          hasInput={false}
+          input=""
+          output={settings.passwords.join("\n")}
+          handleChange={() => {}}
+        />
+      </div>
+    </section>
+  );
+};
+
+export default GenerateSection;

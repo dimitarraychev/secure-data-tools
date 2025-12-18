@@ -1,4 +1,4 @@
-import type { ConverterMode } from "../models/ConverterMode";
+import type { ConverterMode } from "../models/Converter";
 
 export const hexConverter = (input: string, mode: ConverterMode): string => {
   if (mode === "encode") {

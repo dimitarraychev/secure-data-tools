@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import type { HashingSettings } from "../models/HashingSettings";
+import type { HashingSettings } from "../models/Hasher";
 import { encodeHash } from "../utils/encodeHash";
 import { decodeInput } from "../utils/decodeInput";
 import { validateInput } from "../utils/validateInput";
@@ -9,7 +9,7 @@ export type HashFunction = (
   key?: Uint8Array
 ) => Promise<Uint8Array>;
 
-export const useHash = (
+export const useHasher = (
   hashFn: HashFunction,
   initialSettings: HashingSettings
 ) => {

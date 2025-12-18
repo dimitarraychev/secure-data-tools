@@ -1,5 +1,5 @@
 import "./SettingsWrapper.css";
-import type { HashingSettings } from "../../models/HashingSettings";
+import type { HashingSettings } from "../../models/Hasher";
 
 interface SettingsWrapperProps {
   settingsData: HashingSettings;

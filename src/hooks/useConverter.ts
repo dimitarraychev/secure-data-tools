@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import type { ConverterMode } from "../models/ConverterMode";
+import type { ConverterMode } from "../models/Converter";
 
 export interface ConverterSettings {
   input: string;
@@ -11,7 +11,7 @@ type ConverterFunction = (input: string, mode: ConverterMode) => string;
 
 export const useConverter = (
   initialSettings: ConverterSettings,
-  converterFn: ConverterFunction
+  convertFn: ConverterFunction
 ) => {
   const [settingsData, setSettingsData] =
     useState<ConverterSettings>(initialSettings);
@@ -27,12 +27,12 @@ export const useConverter = (
 
   useEffect(() => {
     try {
-      const result = converterFn(settingsData.input, settingsData.mode);
+      const result = convertFn(settingsData.input, settingsData.mode);
       setSettingsData((prev) => ({ ...prev, output: result }));
     } catch (err: any) {
       setSettingsData((prev) => ({ ...prev, output: `Error: ${err.message}` }));
     }
-  }, [settingsData.input, settingsData.mode, converterFn]);
+  }, [settingsData.input, settingsData.mode, convertFn]);
 
   return { settingsData, handleChange };
 };

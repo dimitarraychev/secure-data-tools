@@ -2,6 +2,7 @@ import "./ContentWrapper.css";
 import { toast } from "react-toastify";
 
 interface ContentWrapperProps {
+  hasInput?: boolean;
   input: string;
   output: string;
   handleChange: (
@@ -12,24 +13,29 @@ interface ContentWrapperProps {
 }
 
 const ContentWrapper = ({
+  hasInput = true,
   input,
   output,
   handleChange,
 }: ContentWrapperProps) => {
   const handleCopy = () => {
     navigator.clipboard.writeText(output);
-    toast.success("URL copied to clipboard ✅");
+    toast.success("Output copied to clipboard ✅");
   };
 
   return (
     <div className="content">
-      <label htmlFor="input">Input:</label>
-      <textarea
-        name="input"
-        id="input"
-        value={input}
-        onChange={handleChange}
-      />
+      {hasInput && (
+        <>
+          <label htmlFor="input">Input:</label>
+          <textarea
+            name="input"
+            id="input"
+            value={input}
+            onChange={handleChange}
+          />
+        </>
+      )}
 
       <label htmlFor="output">Output:</label>
       <textarea

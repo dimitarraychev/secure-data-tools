@@ -6,12 +6,13 @@ import Header from "./components/Header/Header";
 import SideMenu from "./components/SideMenu/SideMenu";
 import SHA256Section from "./components/SHA256Section/SHA256Section";
 import SHA1Section from "./components/SHA1Section/SHA1Section";
-import ConverterSection from "./components/ConverterSection/ConverterSection";
+import ConvertSection from "./components/ConvertSection/ConvertSection";
 import {
   base64Converter,
   hexConverter,
   urlConverter,
 } from "./utils/converters";
+import GenerateSection from "./components/GenerateSection/GenerateSection";
 
 function App() {
   return (
@@ -25,23 +26,27 @@ function App() {
           <Route path="/" element={<Navigate to="/sha1" />} />
           <Route path="/sha1" element={<SHA1Section />} />
           <Route path="/sha256" element={<SHA256Section />} />
+          <Route path="/key" element={<GenerateSection />} />
 
           <Route
             path="/hex"
             element={
-              <ConverterSection title="Hex" converterFn={hexConverter} />
+              <ConvertSection title="Convert Hex" convertFn={hexConverter} />
             }
           />
           <Route
             path="/base64"
             element={
-              <ConverterSection title="Base64" converterFn={base64Converter} />
+              <ConvertSection
+                title="Convert Base64"
+                convertFn={base64Converter}
+              />
             }
           />
           <Route
             path="/url"
             element={
-              <ConverterSection title="URL" converterFn={urlConverter} />
+              <ConvertSection title="Convert URL" convertFn={urlConverter} />
             }
           />
 
