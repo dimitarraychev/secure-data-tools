@@ -12,13 +12,19 @@ const SideMenu = () => {
         className={location.pathname === "/sha1" ? "active" : ""}
         onClick={() => navigate("/sha1")}
       >
-        SHA1
+        SHA-1
       </li>
       <li
         className={location.pathname === "/sha256" ? "active" : ""}
         onClick={() => navigate("/sha256")}
       >
-        SHA256
+        SHA-256
+      </li>
+      <li
+        className={location.pathname === "/sha512" ? "active" : ""}
+        onClick={() => navigate("/sha512")}
+      >
+        SHA-512
       </li>
 
       <li className="menu-header">Convert</li>

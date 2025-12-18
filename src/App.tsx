@@ -39,6 +39,10 @@ function App() {
             path="/sha256"
             element={<HashSection key="sha256" algorithm="SHA-256" />}
           />
+          <Route
+            path="/sha512"
+            element={<HashSection key="sha512" algorithm="SHA-512" />}
+          />
           <Route path="/key" element={<GenerateSection />} />
           <Route path="/json" element={<FormatSection />} />
 
