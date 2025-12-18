@@ -14,7 +14,7 @@ interface AutoExpandingTextareaProps
 const AutoExpandingTextarea = ({
   value,
   onChange,
-  maxHeight = 512, // bigger max height
+  maxHeight = 512,
   showCopy = false,
   readOnly = false,
   ...props
@@ -57,6 +57,7 @@ const AutoExpandingTextarea = ({
           alt="Copy"
           onClick={handleCopy}
           className="copy-btn"
+          title="Copy"
         />
       )}
     </div>
