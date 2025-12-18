@@ -30,3 +30,12 @@
   cursor: pointer;
   z-index: 2;
 }
+
+.copy-btn:hover {
+  filter: brightness(1.2);
+  transform: scale(1.02);
+}
+
+.copy-btn:active {
+  transform: scale(1);
+}
