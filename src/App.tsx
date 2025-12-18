@@ -13,6 +13,7 @@ import {
   urlConverter,
 } from "./utils/converters";
 import GenerateSection from "./components/GenerateSection/GenerateSection";
+import FormatSection from "./components/FormatSection/FormatSection";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
           <Route path="/sha1" element={<SHA1Section />} />
           <Route path="/sha256" element={<SHA256Section />} />
           <Route path="/key" element={<GenerateSection />} />
+          <Route path="/json" element={<FormatSection />} />
 
           <Route
             path="/hex"

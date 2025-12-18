@@ -41,12 +41,20 @@ const SideMenu = () => {
         URL
       </li>
 
-       <li className="menu-header">Generate</li>
+      <li className="menu-header">Generate</li>
       <li
         className={location.pathname === "/key" ? "active" : ""}
         onClick={() => navigate("/key")}
       >
         Key
+      </li>
+
+      <li className="menu-header">Format</li>
+      <li
+        className={location.pathname === "/json" ? "active" : ""}
+        onClick={() => navigate("/json")}
+      >
+        JSON
       </li>
     </ul>
   );
