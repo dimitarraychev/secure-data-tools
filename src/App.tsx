@@ -23,7 +23,14 @@ function App() {
         <SideMenu />
 
         <Routes>
-          <Route path="/" element={<Navigate to="/sha1" />} />
+          <Route
+            path="/"
+            element={
+              <h2 style={{ color: "var(--light-gray)" }}>
+                Choose a Tool to Get Started
+              </h2>
+            }
+          />
           <Route path="/sha1" element={<SHA1Section />} />
           <Route path="/sha256" element={<SHA256Section />} />
           <Route path="/key" element={<GenerateSection />} />
