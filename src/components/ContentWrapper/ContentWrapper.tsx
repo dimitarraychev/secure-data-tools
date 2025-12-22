@@ -23,6 +23,7 @@ const ContentWrapper = ({
       {hasInput && (
         <AutoExpandingTextarea
           name="input"
+          title="Input"
           value={input}
           showCopy
           onChange={handleChange}
@@ -32,6 +33,7 @@ const ContentWrapper = ({
 
       <AutoExpandingTextarea
         name="output"
+        title="Output"
         value={output}
         readOnly
         showCopy

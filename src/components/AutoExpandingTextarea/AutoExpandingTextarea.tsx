@@ -6,6 +6,7 @@ import "./AutoExpandingTextarea.css";
 interface AutoExpandingTextareaProps
   extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
   value: string;
+  title: string;
   onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
   maxHeight?: number;
   showCopy?: boolean;
@@ -13,6 +14,7 @@ interface AutoExpandingTextareaProps
 
 const AutoExpandingTextarea = ({
   value,
+  title,
   onChange,
   maxHeight = 512,
   showCopy = false,
@@ -43,6 +45,7 @@ const AutoExpandingTextarea = ({
 
   return (
     <div className="auto-textarea-wrapper">
+      <label htmlFor={props.name}>{title}:</label>
       <textarea
         {...props}
         ref={textareaRef}
@@ -50,6 +53,7 @@ const AutoExpandingTextarea = ({
         onChange={handleInput}
         readOnly={readOnly}
         className="auto-textarea"
+        id={props.name}
       />
       {showCopy && (
         <img
