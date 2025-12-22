@@ -37,7 +37,7 @@ const AutoExpandingTextarea = ({
 
   const handleCopy = () => {
     navigator.clipboard.writeText(value);
-    toast.success("Copied to clipboard ✅");
+    toast.success("Copied to clipboard!");
   };
 
   useEffect(() => {
