@@ -27,6 +27,12 @@ const SideMenu = () => {
         SHA-256
       </li>
       <li
+        className={location.pathname === "/sha384" ? "active" : ""}
+        onClick={() => navigate("/sha384")}
+      >
+        SHA-384
+      </li>
+      <li
         className={location.pathname === "/sha512" ? "active" : ""}
         onClick={() => navigate("/sha512")}
       >

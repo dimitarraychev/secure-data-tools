@@ -37,6 +37,10 @@ function App() {
             element={<HashSection key="sha256" algorithm="SHA-256" />}
           />
           <Route
+            path="/sha384"
+            element={<HashSection key="sha384" algorithm="SHA-384" />}
+          />
+          <Route
             path="/sha512"
             element={<HashSection key="sha512" algorithm="SHA-512" />}
           />
