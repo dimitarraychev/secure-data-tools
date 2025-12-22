@@ -1,8 +1,10 @@
+import type { Encoding } from "./Convert";
+
 export interface RSASettingsModel {
   input: string;
   output: string;
-  inputEncoding: "utf8" | "hex" | "base64" | "";
-  outputEncoding: "base64" | "hex-lower" | "hex-upper" | "";
+  inputEncoding: Encoding;
+  outputEncoding: Encoding;
   publicKey: string;
   privateKey: string;
   algorithm: RSAAlgorithm;

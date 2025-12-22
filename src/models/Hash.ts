@@ -1,9 +1,11 @@
+import type { Encoding } from "./Convert";
+
 export interface HashSettingsModel {
   input: string;
   output: string;
-  inputEncoding: "utf8" | "hex" | "base64" | "";
-  outputEncoding: "hex-lower" | "hex-upper" | "base64" | "";
-  keyEncoding: "utf8" | "hex" | "base64" | "";
+  inputEncoding: Encoding;
+  outputEncoding: Encoding;
+  keyEncoding: Encoding;
   algorithm: HashAlgorithm;
   key: string;
 }

@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
 import type { HashSettingsModel } from "../models/Hash";
-import { encodeHash } from "../utils/encodeHash";
-import { decodeInput } from "../utils/decodeInput";
 import { validateInput } from "../utils/validateInput";
 import { generateHash } from "../utils/generateHash";
+import { decodeInput, encodeOutput } from "../utils/encoding";
 
 export const useHash = (initialSettings: HashSettingsModel) => {
   const [settings, setSettings] = useState<HashSettingsModel>(initialSettings);
@@ -48,8 +47,8 @@ export const useHash = (initialSettings: HashSettingsModel) => {
         );
 
         const encodedHash = settings.outputEncoding
-          ? encodeHash(rawHash.slice().buffer, settings.outputEncoding)
-          : encodeHash(rawHash.slice().buffer, "hex-lower");
+          ? encodeOutput(rawHash.slice().buffer, settings.outputEncoding)
+          : encodeOutput(rawHash.slice().buffer, "hex-lower");
 
         setSettings((prev) => ({ ...prev, output: encodedHash }));
       } catch (err) {

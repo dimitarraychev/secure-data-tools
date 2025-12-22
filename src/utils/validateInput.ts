@@ -1,7 +1,6 @@
-export const validateInput = (
-  value: string,
-  encoding: "" | "utf8" | "hex" | "base64"
-): boolean => {
+import type { Encoding } from "../models/Convert";
+
+export const validateInput = (value: string, encoding: Encoding): boolean => {
   if (!encoding || encoding === "utf8") return true;
 
   if (encoding === "hex") {
