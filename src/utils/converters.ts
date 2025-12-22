@@ -1,30 +1,37 @@
 import type { ConvertMode } from "../models/Convert";
+import { decodeInput, encodeOutput } from "./encoding";
 
 export const hexConverter = (input: string, mode: ConvertMode): string => {
-  if (mode === "encode") {
-    return Array.from(new TextEncoder().encode(input))
-      .map((b) => b.toString(16).padStart(2, "0"))
-      .join("");
-  } else {
-    if (!/^[0-9a-fA-F]*$/.test(input)) throw new Error("Invalid hex string");
-    const bytes = input.match(/.{1,2}/g)?.map((b) => parseInt(b, 16)) || [];
-    return String.fromCharCode(...bytes);
+  try {
+    if (mode === "encode") {
+      return encodeOutput(
+        new Uint8Array(decodeInput(input, "utf8")).buffer,
+        "hex"
+      );
+    }
+    return encodeOutput(
+      new Uint8Array(decodeInput(input, "hex")).buffer,
+      "utf8"
+    );
+  } catch {
+    throw new Error("Invalid hex string");
   }
 };
 
 export const base64Converter = (input: string, mode: ConvertMode): string => {
-  if (mode === "encode") {
-    const bytes = new TextEncoder().encode(input);
-    return btoa(String.fromCharCode(...bytes));
-  } else {
-    try {
-      const bytes = Uint8Array.from(
-        [...atob(input)].map((c) => c.charCodeAt(0))
+  try {
+    if (mode === "encode") {
+      return encodeOutput(
+        new Uint8Array(decodeInput(input, "utf8")).buffer,
+        "base64"
       );
-      return new TextDecoder().decode(bytes);
-    } catch {
-      throw new Error("Invalid Base64 string");
     }
+    return encodeOutput(
+      new Uint8Array(decodeInput(input, "base64")).buffer,
+      "utf8"
+    );
+  } catch {
+    throw new Error("Invalid Base64 string");
   }
 };
 

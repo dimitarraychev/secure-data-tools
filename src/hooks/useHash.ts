@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import type { HashSettingsModel } from "../models/Hash";
-import { validateInput } from "../utils/validateInput";
 import { generateHash } from "../utils/generateHash";
-import { decodeInput, encodeOutput } from "../utils/encoding";
+import { decodeInput, encodeOutput, isValidEncoding } from "../utils/encoding";
 
 export const useHash = (initialSettings: HashSettingsModel) => {
   const [settings, setSettings] = useState<HashSettingsModel>(initialSettings);
@@ -26,7 +25,7 @@ export const useHash = (initialSettings: HashSettingsModel) => {
         return;
       }
 
-      if (!validateInput(settings.input, settings.inputEncoding)) {
+      if (!isValidEncoding(settings.input, settings.inputEncoding)) {
         setSettings((prev) => ({
           ...prev,
           output: `Error: input is not a valid ${settings.inputEncoding} string`,
