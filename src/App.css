@@ -87,6 +87,7 @@ textarea {
 .settings .hmac-wrapper summary {
   color: var(--light-gray);
   padding-left: 0.3rem;
+  margin-bottom: 0.5rem;
 }
 
 .settings .hmac-content {

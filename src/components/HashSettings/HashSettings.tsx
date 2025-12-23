@@ -1,4 +1,5 @@
 import type { HashSettingsModel } from "../../models/Hash";
+import CustomRadio from "../CustomRadio/CustomRadio";
 
 interface HashSettingsProps {
   settings: HashSettingsModel;
@@ -12,45 +13,57 @@ interface HashSettingsProps {
 const HashSettings = ({ settings, handleChange }: HashSettingsProps) => {
   return (
     <div className="settings">
-      <label htmlFor="inputEncoding">Input Encoding:</label>
-      <select
+      <CustomRadio
         name="inputEncoding"
-        id="inputEncoding"
+        label="Input Encoding:"
         value={settings.inputEncoding}
-        onChange={handleChange}
-      >
-        <option value="utf8">UTF-8</option>
-        <option value="hex">Hex</option>
-        <option value="base64">Base64</option>
-      </select>
+        options={[
+          { label: "UTF-8", value: "utf8" },
+          { label: "Hex", value: "hex" },
+          { label: "Base64", value: "base64" },
+        ]}
+        onChange={(value) =>
+          handleChange({
+            target: { name: "inputEncoding", value },
+          } as React.ChangeEvent<HTMLInputElement>)
+        }
+      />
 
-      <label htmlFor="outputEncoding">Output Encoding:</label>
-      <select
+      <CustomRadio
         name="outputEncoding"
-        id="outputEncoding"
+        label="Output Encoding:"
         value={settings.outputEncoding}
-        onChange={handleChange}
-      >
-        <option value="hex-lower">Hex (lowercase)</option>
-        <option value="hex-upper">Hex (uppercase)</option>
-        <option value="base64">Base64</option>
-      </select>
+        options={[
+          { label: "Hex↓", value: "hex-lower" },
+          { label: "Hex↑", value: "hex-upper" },
+          { label: "Base64", value: "base64" },
+        ]}
+        onChange={(value) =>
+          handleChange({
+            target: { name: "outputEncoding", value },
+          } as React.ChangeEvent<HTMLInputElement>)
+        }
+      />
 
       <details className="hmac-wrapper">
         <summary>HMAC</summary>
 
         <div className="hmac-content">
-          <label htmlFor="keyEncoding">Key Encoding:</label>
-          <select
+          <CustomRadio
             name="keyEncoding"
-            id="keyEncoding"
+            label="Key Encoding:"
             value={settings.keyEncoding}
-            onChange={handleChange}
-          >
-            <option value="utf8">UTF-8</option>
-            <option value="hex">Hex</option>
-            <option value="base64">Base64</option>
-          </select>
+            options={[
+              { label: "UTF-8", value: "utf8" },
+              { label: "Hex", value: "hex" },
+              { label: "Base64", value: "base64" },
+            ]}
+            onChange={(value) =>
+              handleChange({
+                target: { name: "keyEncoding", value },
+              } as React.ChangeEvent<HTMLInputElement>)
+            }
+          />
 
           <label htmlFor="key">Key:</label>
           <input

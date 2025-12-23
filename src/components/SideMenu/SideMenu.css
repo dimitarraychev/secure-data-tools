@@ -13,7 +13,7 @@
 
 .side-menu li.active {
   background-color: rgba(255, 255, 255, 0.1);
-  border-left: 3px solid #007bff;
+  border-left: 4px solid var(--selected);
 }
 
 .side-menu li.menu-header {
@@ -31,7 +31,6 @@
   cursor: pointer;
   padding: 0.5rem 0;
   margin: 0.5rem 0;
-  border-bottom: 1px solid var(--border);
 }
 
 .side-menu .logo-text {

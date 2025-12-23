@@ -1,6 +1,7 @@
 import ContentWrapper from "../ContentWrapper/ContentWrapper";
 import { useConvert } from "../../hooks/useConvert";
 import type { ConvertSettingsModel } from "../../models/Convert";
+import CustomRadio from "../CustomRadio/CustomRadio";
 
 interface ConvertSectionProps {
   title: string;
@@ -22,10 +23,23 @@ const ConvertSection = ({ title, convertFn }: ConvertSectionProps) => {
       <div className="section-columns">
         <div className="settings">
           <label htmlFor="mode">Mode:</label>
-          <select name="mode" value={settings.mode} onChange={handleChange}>
+          {/* <select name="mode" value={settings.mode} onChange={handleChange}>
             <option value="decode">Decode</option>
             <option value="encode">Encode</option>
-          </select>
+          </select> */}
+          <CustomRadio
+            name="mode"
+            value={settings.mode}
+            options={[
+              { label: "Decode", value: "decode" },
+              { label: "Encode", value: "encode" },
+            ]}
+            onChange={(value) =>
+              handleChange({
+                target: { name: "mode", value },
+              } as React.ChangeEvent<HTMLInputElement>)
+            }
+          />
         </div>
 
         <ContentWrapper
