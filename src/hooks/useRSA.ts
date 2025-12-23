@@ -8,6 +8,12 @@ import {
 
 export const useRSA = (initialSettings: RSASettingsModel) => {
   const [settings, setSettings] = useState<RSASettingsModel>(initialSettings);
+  const defaultEncodings = (
+    mode: "encode" | "decode"
+  ): Pick<RSASettingsModel, "inputEncoding" | "outputEncoding"> =>
+    mode === "encode"
+      ? { inputEncoding: "utf8", outputEncoding: "hex-lower" }
+      : { inputEncoding: "hex", outputEncoding: "utf8" };
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -84,6 +90,10 @@ export const useRSA = (initialSettings: RSASettingsModel) => {
     settings.outputEncoding,
     settings.algorithm,
   ]);
+
+  useEffect(() => {
+    setSettings((prev) => ({ ...prev, ...defaultEncodings(settings.mode) }));
+  }, [settings.mode]);
 
   return {
     settings,

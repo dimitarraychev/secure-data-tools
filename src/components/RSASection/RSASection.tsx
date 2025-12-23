@@ -7,8 +7,8 @@ const RSASection = () => {
   const initialSettings: RSASettingsModel = {
     input: "",
     output: "",
-    inputEncoding: "utf8",
-    outputEncoding: "hex-lower",
+    inputEncoding: "hex",
+    outputEncoding: "utf8",
     publicKey: "",
     privateKey: "",
     algorithm: "PCKS#1",
