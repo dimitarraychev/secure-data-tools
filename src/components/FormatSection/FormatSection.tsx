@@ -1,6 +1,7 @@
 import ContentWrapper from "../ContentWrapper/ContentWrapper";
 import { useFormat } from "../../hooks/useFormat";
 import type { FormatSettingsModel } from "../../models/Format";
+import CustomRadio from "../CustomRadio/CustomRadio";
 
 const FormatSection = () => {
   const initialSettings: FormatSettingsModel = {
@@ -16,12 +17,21 @@ const FormatSection = () => {
       <h2 className="section-header">Format JSON</h2>
       <div className="section-columns">
         <div className="settings">
-          <label htmlFor="mode">Mode:</label>
-          <select name="mode" value={settings.mode} onChange={handleChange}>
-            <option value="parse">Parse</option>
-            <option value="stringify">Stringify</option>
-            <option value="stringify-pretty">Pretty-print</option>
-          </select>
+          <CustomRadio
+            name="mode"
+            label="Mode:"
+            value={settings.mode}
+            options={[
+              { label: "Parse", value: "parse" },
+              { label: "Stringify", value: "stringify" },
+              { label: "Pretty-print", value: "stringify-pretty" },
+            ]}
+            onChange={(value) =>
+              handleChange({
+                target: { name: "mode", value },
+              } as React.ChangeEvent<HTMLInputElement>)
+            }
+          />
         </div>
 
         <ContentWrapper

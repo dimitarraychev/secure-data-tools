@@ -22,13 +22,9 @@ const ConvertSection = ({ title, convertFn }: ConvertSectionProps) => {
       <h2 className="section-header">{title}</h2>
       <div className="section-columns">
         <div className="settings">
-          <label htmlFor="mode">Mode:</label>
-          {/* <select name="mode" value={settings.mode} onChange={handleChange}>
-            <option value="decode">Decode</option>
-            <option value="encode">Encode</option>
-          </select> */}
           <CustomRadio
             name="mode"
+            label="Mode:"
             value={settings.mode}
             options={[
               { label: "Decode", value: "decode" },

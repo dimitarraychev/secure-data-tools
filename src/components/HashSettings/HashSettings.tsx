@@ -45,36 +45,30 @@ const HashSettings = ({ settings, handleChange }: HashSettingsProps) => {
         }
       />
 
-      <details className="hmac-wrapper">
-        <summary>HMAC</summary>
+      <CustomRadio
+        name="keyEncoding"
+        label="Key Encoding:"
+        value={settings.keyEncoding}
+        options={[
+          { label: "UTF-8", value: "utf8" },
+          { label: "Hex", value: "hex" },
+          { label: "Base64", value: "base64" },
+        ]}
+        onChange={(value) =>
+          handleChange({
+            target: { name: "keyEncoding", value },
+          } as React.ChangeEvent<HTMLInputElement>)
+        }
+      />
 
-        <div className="hmac-content">
-          <CustomRadio
-            name="keyEncoding"
-            label="Key Encoding:"
-            value={settings.keyEncoding}
-            options={[
-              { label: "UTF-8", value: "utf8" },
-              { label: "Hex", value: "hex" },
-              { label: "Base64", value: "base64" },
-            ]}
-            onChange={(value) =>
-              handleChange({
-                target: { name: "keyEncoding", value },
-              } as React.ChangeEvent<HTMLInputElement>)
-            }
-          />
-
-          <label htmlFor="key">Key:</label>
-          <input
-            type="text"
-            name="key"
-            id="key"
-            value={settings.key}
-            onChange={handleChange}
-          />
-        </div>
-      </details>
+      <label htmlFor="key">Key:</label>
+      <input
+        type="text"
+        name="key"
+        id="key"
+        value={settings.key}
+        onChange={handleChange}
+      />
     </div>
   );
 };

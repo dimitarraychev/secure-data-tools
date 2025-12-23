@@ -1,7 +1,8 @@
 import type { RSASettingsModel } from "../../models/RSA";
-import { RSA_ALGORITHM_LABELS } from "../../models/RSA";
+// import { RSA_ALGORITHM_LABELS } from "../../models/RSA";
 import AutoExpandingTextarea from "../AutoExpandingTextarea/AutoExpandingTextarea";
 import Button from "../Button/Button";
+import CustomRadio from "../CustomRadio/CustomRadio";
 
 interface RSASettingsProps {
   settings: RSASettingsModel;
@@ -24,44 +25,56 @@ const RSASettings = ({
 }: RSASettingsProps) => {
   return (
     <div className="settings rsa-settings">
-      <label htmlFor="inputEncoding">Input Encoding:</label>
-      <select
+      <CustomRadio
         name="inputEncoding"
-        id="inputEncoding"
+        label="Input Encoding:"
         value={settings.inputEncoding}
-        onChange={handleChange}
-      >
-        <option value="utf8">UTF-8</option>
-        <option value="hex">Hex</option>
-        <option value="base64">Base64</option>
-      </select>
+        options={[
+          { label: "UTF-8", value: "utf8" },
+          { label: "Hex", value: "hex" },
+          { label: "Base64", value: "base64" },
+        ]}
+        onChange={(value) =>
+          handleChange({
+            target: { name: "inputEncoding", value },
+          } as React.ChangeEvent<HTMLInputElement>)
+        }
+      />
 
-      <label htmlFor="outputEncoding">Output Encoding:</label>
-      <select
+      <CustomRadio
         name="outputEncoding"
-        id="outputEncoding"
+        label="Output Encoding:"
         value={settings.outputEncoding}
-        onChange={handleChange}
-      >
-        <option value="utf8">UTF-8</option>
-        <option value="base64">Base64</option>
-        <option value="hex-lower">Hex (lowercase)</option>
-        <option value="hex-upper">Hex (uppercase)</option>
-      </select>
+        options={[
+          { label: "Hex↓", value: "hex-lower" },
+          { label: "Hex↑", value: "hex-upper" },
+          { label: "Base64", value: "base64" },
+        ]}
+        onChange={(value) =>
+          handleChange({
+            target: { name: "outputEncoding", value },
+          } as React.ChangeEvent<HTMLInputElement>)
+        }
+      />
 
-      <label htmlFor="algorithm">Algorithm:</label>
-      <select
+      <CustomRadio
         name="algorithm"
-        id="algorithm"
+        label="Algorithm:"
         value={settings.algorithm}
-        onChange={handleChange}
-      >
-        {Object.entries(RSA_ALGORITHM_LABELS).map(([value, label]) => (
-          <option key={value} value={value}>
-            {label}
-          </option>
-        ))}
-      </select>
+        options={[
+          { label: "PCKS#1", value: "PCKS#1" },
+          { label: "SHA-1", value: "SHA-1" },
+          { label: "SHA-224", value: "SHA-224" },
+          { label: "SHA-256", value: "SHA-256" },
+          { label: "SHA-384", value: "SHA-384" },
+          { label: "SHA-512", value: "SHA-512" },
+        ]}
+        onChange={(value) =>
+          handleChange({
+            target: { name: "algorithm", value },
+          } as React.ChangeEvent<HTMLInputElement>)
+        }
+      />
 
       <AutoExpandingTextarea
         title="Public Key"
