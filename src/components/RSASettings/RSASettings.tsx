@@ -1,5 +1,4 @@
 import type { RSASettingsModel } from "../../models/RSA";
-// import { RSA_ALGORITHM_LABELS } from "../../models/RSA";
 import AutoExpandingTextarea from "../AutoExpandingTextarea/AutoExpandingTextarea";
 import Button from "../Button/Button";
 import CustomRadio from "../CustomRadio/CustomRadio";
@@ -20,11 +19,24 @@ const RSASettings = ({
   settings,
   handleChange,
   onGenerate,
-  onEncrypt,
-  onDecrypt,
 }: RSASettingsProps) => {
   return (
     <div className="settings rsa-settings">
+      <CustomRadio
+        name="mode"
+        label="Mode:"
+        value={settings.mode}
+        options={[
+          { label: "Decode", value: "decode" },
+          { label: "Encode", value: "encode" },
+        ]}
+        onChange={(value) =>
+          handleChange({
+            target: { name: "mode", value },
+          } as React.ChangeEvent<HTMLInputElement>)
+        }
+      />
+
       <CustomRadio
         name="inputEncoding"
         label="Input Encoding:"
@@ -46,6 +58,7 @@ const RSASettings = ({
         label="Output Encoding:"
         value={settings.outputEncoding}
         options={[
+          { label: "UTF-8", value: "utf8" },
           { label: "Hex↓", value: "hex-lower" },
           { label: "Hex↑", value: "hex-upper" },
           { label: "Base64", value: "base64" },
@@ -83,8 +96,8 @@ const RSASettings = ({
         showCopy
         value={settings.publicKey}
         onChange={handleChange}
-        minHeight={144}
-        maxHeight={144}
+        minHeight={128}
+        maxHeight={128}
         placeholder="Enter your public key here.."
       />
 
@@ -95,16 +108,12 @@ const RSASettings = ({
         showCopy
         value={settings.privateKey}
         onChange={handleChange}
-        minHeight={144}
-        maxHeight={144}
+        minHeight={128}
+        maxHeight={128}
         placeholder="Enter your private key here..."
       />
 
-      <div className="rsa-actions">
-        <Button title="Generate" text="Generate" onClick={onGenerate} />
-        <Button title="Encrypt" text="Encrypt" onClick={onEncrypt} />
-        <Button title="Decrypt" text="Decrypt" onClick={onDecrypt} />
-      </div>
+      <Button title="Generate Keys" text="Generate Keys" onClick={onGenerate} />
     </div>
   );
 };

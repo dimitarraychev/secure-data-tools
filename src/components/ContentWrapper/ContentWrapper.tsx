@@ -28,8 +28,8 @@ const ContentWrapper = ({
           showCopy
           onChange={handleChange}
           placeholder="Enter your input here..."
-          minHeight={256}
-          maxHeight={256}
+          minHeight={272}
+          maxHeight={272}
         />
       )}
 

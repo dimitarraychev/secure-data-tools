@@ -1,5 +1,7 @@
 import type { Encoding } from "./Convert";
 
+export type RSAMode = "encode" | "decode";
+
 export interface RSASettingsModel {
   input: string;
   output: string;
@@ -8,6 +10,7 @@ export interface RSASettingsModel {
   publicKey: string;
   privateKey: string;
   algorithm: RSAAlgorithm;
+  mode: RSAMode;
 }
 
 export type RSAAlgorithm =

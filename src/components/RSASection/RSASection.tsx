@@ -12,6 +12,7 @@ const RSASection = () => {
     publicKey: "",
     privateKey: "",
     algorithm: "PCKS#1",
+    mode: "decode",
   };
 
   const {

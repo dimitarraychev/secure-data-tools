@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import type { RSASettingsModel } from "../models/RSA";
 import {
   generateKeyPair,
@@ -66,6 +66,24 @@ export const useRSA = (initialSettings: RSASettingsModel) => {
       setSettings((prev) => ({ ...prev, output: "Error decrypting" }));
     }
   };
+
+  useEffect(() => {
+    if (!settings.input) return;
+
+    if (settings.mode === "encode") {
+      handleEncrypt();
+    } else {
+      handleDecrypt();
+    }
+  }, [
+    settings.input,
+    settings.mode,
+    settings.publicKey,
+    settings.privateKey,
+    settings.inputEncoding,
+    settings.outputEncoding,
+    settings.algorithm,
+  ]);
 
   return {
     settings,
