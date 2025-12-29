@@ -3,6 +3,7 @@
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
+  gap: 0.2rem;
 }
 
 .customCheckBox {
@@ -48,6 +49,10 @@
 
 .customCheckBox:hover .inner {
   transform: translateY(-2px);
+}
+
+.customCheckBoxWrapper {
+  margin: 0;
 }
 
 .customCheckBoxWrapper:first-of-type .customCheckBox {
