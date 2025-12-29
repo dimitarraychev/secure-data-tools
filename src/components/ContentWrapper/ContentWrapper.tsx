@@ -46,8 +46,8 @@ const ContentWrapper = ({
           showCopy
           onChange={handleChange}
           placeholder="Output will appear here..."
-          minHeight={isArray ? 48 : 256}
-          maxHeight={isArray ? 48 : 256}
+          minHeight={isArray ? 48 : 272}
+          maxHeight={isArray ? 48 : 272}
         />
       ))}
     </div>
