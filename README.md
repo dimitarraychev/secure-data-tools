@@ -1,4 +1,4 @@
-# Integration Utilities
+# Secure Data Tools
 
 A modern web app for **hashing, encoding/decoding, formatting, and cryptography** tasks. Built with **React TS + Vite**, featuring a clean UI and multiple utility tools.
 
