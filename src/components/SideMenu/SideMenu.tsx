@@ -10,7 +10,7 @@ const SideMenu = () => {
     <ul className="side-menu">
       <div className="logo-wrapper" onClick={() => navigate("/")}>
         <img src={logoSvg} alt="Logo" className="logo" />
-        <h1 className="logo-text">Integration Utilities</h1>
+        <h1 className="logo-text">Secure Data Tools</h1>
       </div>
 
       <li className="menu-header">Hash</li>
