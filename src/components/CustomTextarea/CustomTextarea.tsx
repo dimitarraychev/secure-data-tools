@@ -3,9 +3,9 @@ import copySvg from "../../assets/copy.svg";
 import expandSvg from "../../assets/expand.svg";
 import collapseSvg from "../../assets/collapse.svg";
 import { toast } from "react-toastify";
-import "./CustomTextArea.css";
+import "./CustomTextarea.css";
 
-interface CustomTextAreaProps
+interface CustomTextareaProps
   extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
   value: string;
   title?: string;
@@ -14,7 +14,7 @@ interface CustomTextAreaProps
   showCopy?: boolean;
 }
 
-const CustomTextArea = ({
+const CustomTextarea = ({
   value,
   title,
   onChange,
@@ -22,7 +22,7 @@ const CustomTextArea = ({
   showCopy = false,
   readOnly = false,
   ...props
-}: CustomTextAreaProps) => {
+}: CustomTextareaProps) => {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -88,4 +88,4 @@ const CustomTextArea = ({
   );
 };
 
-export default CustomTextArea;
+export default CustomTextarea;
