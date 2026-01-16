@@ -12,11 +12,11 @@ const JsonViewer = ({ jsonData, title }: JsonViewerProps) => {
       <label className="json-title">{title}</label>
       <ReactJson
         src={jsonData}
-        theme="monokai"
+        theme="summerfruit"
+        style={{ backgroundColor: "#00010f", fontSize: "16px" }}
         enableClipboard={true}
         displayDataTypes={false}
         displayObjectSize={false}
-        style={{ fontSize: "14px" }}
       />
     </div>
   );

@@ -7,7 +7,7 @@ const FormatSection = () => {
   const initialSettings: FormatSettingsModel = {
     input: "",
     output: "",
-    mode: "parse",
+    mode: "inspect",
   };
 
   const { settings, handleChange } = useFormat(initialSettings);
@@ -22,9 +22,9 @@ const FormatSection = () => {
             label="Mode:"
             value={settings.mode}
             options={[
-              { label: "Parse", value: "parse" },
-              { label: "Stringify", value: "stringify" },
               { label: "Inspect", value: "inspect" },
+              { label: "Stringify", value: "stringify" },
+              { label: "Parse", value: "parse" },
             ]}
             onChange={(value) =>
               handleChange({
