@@ -43,6 +43,10 @@ label {
   display: flex;
 }
 
+label:has(input[type="checkbox"]) {
+  cursor: pointer;
+}
+
 input:not([type="checkbox"]),
 select {
   margin-bottom: 0.75rem;
@@ -57,6 +61,8 @@ input[type="checkbox"] {
   margin-left: 0.5rem;
   width: 1rem;
   height: 1rem;
+  accent-color: var(--dark-gray);
+  cursor: pointer;
 }
 
 input:focus,

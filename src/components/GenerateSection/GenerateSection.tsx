@@ -2,6 +2,7 @@ import { useGenerate } from "../../hooks/useGenerate";
 import Button from "../Button/Button";
 import ContentWrapper from "../ContentWrapper/ContentWrapper";
 import NumberInput from "../NumberInput/NumberInput";
+import generateIcon from "../../assets/generate.svg";
 
 const GenerateSection = () => {
   const initialSettings = {
@@ -45,7 +46,12 @@ const GenerateSection = () => {
             />
           </label>
 
-          <Button title="Re-Generate" text="Re-Generate" onClick={generate} />
+          <Button
+            title="Re-Generate"
+            text="Re-Generate"
+            icon={generateIcon}
+            onClick={generate}
+          />
         </div>
 
         <ContentWrapper

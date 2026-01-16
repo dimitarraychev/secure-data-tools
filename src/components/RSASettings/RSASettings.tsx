@@ -2,6 +2,7 @@ import type { RSASettingsModel } from "../../models/RSA";
 import CustomTextarea from "../CustomTextarea/CustomTextarea";
 import Button from "../Button/Button";
 import CustomRadio from "../CustomRadio/CustomRadio";
+import generateIcon from "../../assets/generate.svg";
 
 interface RSASettingsProps {
   settings: RSASettingsModel;
@@ -93,7 +94,6 @@ const RSASettings = ({
         title="Public Key"
         name="publicKey"
         id="publicKey"
-        showCopy
         value={settings.publicKey}
         onChange={handleChange}
         minHeight={128}
@@ -104,14 +104,13 @@ const RSASettings = ({
         title="Private Key"
         name="privateKey"
         id="privateKey"
-        showCopy
         value={settings.privateKey}
         onChange={handleChange}
         minHeight={128}
         placeholder="Enter your private key here..."
       />
 
-      <Button title="Generate Keys" text="Generate Keys" onClick={onGenerate} />
+      <Button title="Generate Keys" text="Generate Keys" icon={generateIcon} onClick={onGenerate} />
     </div>
   );
 };

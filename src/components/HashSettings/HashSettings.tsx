@@ -66,7 +66,6 @@ const HashSettings = ({ settings, handleChange }: HashSettingsProps) => {
         title="Key"
         name="key"
         id="key"
-        showCopy
         value={settings.key}
         onChange={handleChange}
         minHeight={128}

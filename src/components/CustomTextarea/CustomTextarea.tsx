@@ -12,6 +12,7 @@ interface CustomTextareaProps
   onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
   minHeight?: number;
   showCopy?: boolean;
+  showExpand?: boolean;
 }
 
 const CustomTextarea = ({
@@ -19,7 +20,8 @@ const CustomTextarea = ({
   title,
   onChange,
   minHeight = 48,
-  showCopy = false,
+  showCopy = true,
+  showExpand = true,
   readOnly = false,
   ...props
 }: CustomTextareaProps) => {
@@ -57,32 +59,38 @@ const CustomTextarea = ({
     <>
       {title && <label htmlFor={props.name}>{title}:</label>}
 
-      <div className="auto-textarea-wrapper">
+      <div className="custom-textarea-wrapper">
         <textarea
           {...props}
           ref={textareaRef}
           value={value}
           onChange={onChange}
           readOnly={readOnly}
-          className="auto-textarea"
+          className="custom-textarea"
           id={props.name}
         />
-        {showCopy && (
-          <img
-            src={copySvg}
-            alt="Copy"
-            onClick={handleCopy}
-            className="copy-btn"
-            title="Copy"
-          />
-        )}
-        <img
-          src={isExpanded ? collapseSvg : expandSvg}
-          alt={isExpanded ? "Collapse" : "Expand"}
-          onClick={toggleExpand}
-          className="expand-btn"
-          title={isExpanded ? "Collapse" : "Expand"}
-        />
+
+        <div className="textarea-buttons-wrapper">
+          {showExpand && (
+            <img
+              src={isExpanded ? collapseSvg : expandSvg}
+              alt={isExpanded ? "Collapse" : "Expand"}
+              onClick={toggleExpand}
+              className="expand-btn"
+              title={isExpanded ? "Collapse" : "Expand"}
+            />
+          )}
+
+          {showCopy && (
+            <img
+              src={copySvg}
+              alt="Copy"
+              onClick={handleCopy}
+              className="copy-btn"
+              title="Copy"
+            />
+          )}
+        </div>
       </div>
     </>
   );

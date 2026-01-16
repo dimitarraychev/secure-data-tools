@@ -28,7 +28,6 @@ const ContentWrapper = ({
           name="input"
           title="Input"
           value={input}
-          showCopy
           onChange={handleChange}
           placeholder="Enter your input here..."
           minHeight={272}
@@ -42,7 +41,7 @@ const ContentWrapper = ({
           title={idx === 0 ? "Output" : ""}
           value={item}
           readOnly
-          showCopy
+          showExpand={hasInput}
           onChange={handleChange}
           placeholder="Output will appear here..."
           minHeight={isArray ? 48 : 272}

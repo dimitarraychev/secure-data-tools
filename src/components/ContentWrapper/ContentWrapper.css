@@ -3,21 +3,3 @@
   flex-direction: column;
   flex: 1;
 }
-
-.content #output,
-#input {
-  width: 100%;
-}
-
-.content .content-wrapper {
-  position: relative;
-}
-
-.content-wrapper .copy {
-  position: absolute;
-  top: 1.6rem;
-  right: 0.3rem;
-  width: 1.8rem;
-  height: 1.8rem;
-  cursor: pointer;
-}
